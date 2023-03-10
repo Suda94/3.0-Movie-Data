@@ -34,25 +34,22 @@ let movieData = {
     },
 };
 
-
-//movie data variables: taking the key value from movie data value.
+// MOVIE DATA PROJECT
 const movieLength = Object.keys(movieData).length;
 const movieName = Object.keys(movieData);
 let movieInfo = Object.values(movieData);
-let movieEntry = Object.entries(movieData);
+let movieEntries = Object.entries(movieData);
 
-
-//checking for varable to display the variable:
+// LOGS
 // console.log(movieLength);
 // console.log(movieName);
 // console.log(movieInfo);
-// console.log(movieEntry);
 
-//used for rendering Movie's data on the page using the Movie container from index page. 
+// Render the data onto the webpage with DOM Manipulation ✅ ------------------------------------------
 const movieContainer = document.querySelector(".movie-Container");
 const sortBtn = document.querySelector(".sort-btn");
 
-for (let i = 0; i < movieEntry.length; i++) {
+for (let i = 0; i < movieEntries.length; i++) {
 
 
     const movieCard = document.createElement("div");
@@ -60,65 +57,62 @@ for (let i = 0; i < movieEntry.length; i++) {
     movieCard.innerHTML = `
       <img class="movie-poster" src="./images/${movieName[i]}.jpg" alt="an image of ${movieName[i]} poster" >
       <h2 class="movie-name">${movieName[i]} (${movieInfo[i].year})</h2>
-      <details><h3>Plot:</h3><br>
+      <h3>Plot</h3><br>
       <p class="movie-plot">${movieInfo[i].plot}</p>
       <br>
-      <h3>Cast:</h3><br>
+      <h3>Cast</h3><br>
       <p class="movie-cast"><em>${movieInfo[i].cast}</em></p>
       <br>
-      <h3>Info:</h3><br>
-    <p>(<strong>Rating:</strong> ${movieInfo[i].rating}) <span>(<strong>RUNTIME:</strong>${movieInfo[i].runtime} Minutes)</span></p></details>
+      <h3>Info</h3><br>
+      <p>(<strong>${movieInfo[i].rating}</strong> Rating) <span>(${movieInfo[i].runtime} Minutes)</span></p>
     `;
-    console.log(movieCard)
+
     movieContainer.appendChild(movieCard);
 }
 
-
-
-//take the sort button from the index to link with function to 
+// Allow the user to affect the display of the data by interacting with the webpage ✅ ------------------------------------------
 document.getElementById("sort-btnID").onclick = function () {
     // Sorted Data
-    movieEntry = movieEntry.sort(byName);
+    movieEntries = movieEntries.sort(byName);
     movieContainer.innerHTML = "";
 
-    for (i = 0; i < movieEntry.length; i++) {
+    for (i = 0; i < movieEntries.length; i++) {
         const sortedMovieCard = document.createElement("div");
         sortedMovieCard.classList.add("movie-wrapper");
 
         sortedMovieCard.innerHTML = `
-      <img class="movie-poster" src="./images/${movieEntry[i][0]}.jpg" alt="an image of ${movieEntry[i][0]} poster" onerror="if (this.src != '${movieEntry[i][0]}.jpg') this.src = './images/poster_default.png';">
+      <img class="movie-poster" src="./images/${movieEntries[i][0]}.jpg" alt="an image of ${movieEntries[i][0]} poster" onerror="if (this.src != '${movieEntries[i][0]}.jpg') this.src = './images/poster_default.png';">
     
-      <h2 class="movie-name">${movieEntry[i][0]} (${movieEntry[i][1].year})</h2>
+      <h2 class="movie-name">${movieEntries[i][0]} (${movieEntries[i][1].year})</h2>
     
-      <details><h3>Plot</h3><br>
-      <p class="movie-plot">${movieEntry[i][1].plot}</p>
+      <h3>Plot</h3><br>
+      <p class="movie-plot">${movieEntries[i][1].plot}</p>
       <br>
-        
+      
       <h3>Cast</h3><br>
-      <p class="movie-cast"><em>${movieEntry[i][1].cast}</em></p>
+      <p class="movie-cast"><em>${movieEntries[i][1].cast}</em></p>
       <br>
     
       <h3>Info</h3><br>
-      <p>(<strong>${movieEntry[i][1].rating}</strong> Rating) <span>(${movieEntry[i][1].runtime} Minutes)</span></p></details>
+      <p>(<strong>${movieEntries[i][1].rating}</strong> Rating) <span>(${movieEntries[i][1].runtime} Minutes)</span></p>
       `;
         movieContainer.append(sortedMovieCard);
     }
-    console.log(movieEntry);
+    console.log(movieEntries);
 };
 
-// here is the fuction to returning sort by Name:
 
-function byName(a,b){
-    if(a > b){
+// Return sort by name ()
+function byName(a, b) {
+    if (a > b) {
         return 1;
-    } else if(b > a){
+    } else if (b > a) {
         return -1;
-    }else{
+    } else {
         return 0;
     }
-    }
+}
 
-// 
 // Allow the user to update the data stored in the object by interacting with the webpage ✅ ------------------------------------------
 
 function inputMovie() {
@@ -130,7 +124,7 @@ function inputMovie() {
     const inputMovieRunTime = document.getElementById("inputMovieRunTime").value;
 
     // Adds New Data to movieData
-    movieEntry.push([
+    movieEntries.push([
         inputMovieName,
         {
             cast: inputMovieCast,
@@ -147,16 +141,16 @@ function inputMovie() {
     inputMovieCard.innerHTML = `
         <img class="movie-poster" src="./images/poster_default.png" alt="an image of ${inputMovieName} poster" >
         <h2 class="movie-name">${inputMovieName} (${inputMovieYear})</h2>
-        <details><h3>Plot</h3><br>
+        <h3>Plot</h3><br>
         <p class="movie-plot">${inputMoviePlot}</p>
         <br>
         <h3>Cast</h3><br>
         <p class="movie-cast"><em>${inputMovieCast}</em></p>
         <br>
         <h3>Info</h3><br>
-        <p>(<strong>${inputMovieRating}</strong> Rating) <span>(${inputMovieRunTime} Minutes)</span></p></details>
+        <p>(<strong>${inputMovieRating}</strong> Rating) <span>(${inputMovieRunTime} Minutes)</span></p>
       `;
 
     movieContainer.append(inputMovieCard);
-    console.log(movieEntry);
+    console.log(movieEntries);
 }
