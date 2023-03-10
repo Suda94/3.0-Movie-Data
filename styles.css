@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color:#a7dee7 ;
+}
+
+
+header{
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+    color: #f9d9a8;
+    text-align: center;
+    text-shadow: 2px 2px #494949;
+    background-image: linear-gradient(to right, #f9d9a8, #f7c18b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* container for the boxmodel to search for sorting or adding new data */
+.movie-form {
+  margin: 5px 25px 5px 25px;
+  padding-bottom: 5px;
+}
+.boxmodel {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.sort-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+}
+
+.sort-btn:hover {
+  color: rgb(10, 2, 2);
+  background-color: #ffffff;
+}
+
+.boxmodel {
+  background-color: rgb(220, 248, 248);
+  border: 2rem;
+  color: rgb(12, 9, 9);
+  border-radius: 4rem;
+}
+
+
+/* Movie section */
+.movie-Container {
+  display:flex;
+  flex-direction:column;
+  max-width: 40%;
+  margin: auto;
+  padding: 5rem 3rem;
+  flex-wrap: wrap;
+  gap:1rem;
+}
+
+.movie-wrapper {
+  margin-bottom: 10px;
+  border: #ffffff groove;
+  padding: 5px;
+  color: #ffffff;
+  float: center;
+  background-color: rgb(0, 0, 0);
+}
+
+.movie-poster {
+ width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10em;
+  padding: 1em;
+  background-color: gray;
+}
+
+details {
+  border: 0.4rem solid #aaa;
+  border-radius: 1em;
+  padding:-5rem;
+  font-weight: 300;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+}
+
+details[open] { 
+  padding: 0.5em;
+  transform: rotateX(360deg);
+}
+
+
+
+.movie-name {
+  text-align: center;
+  color: #fff;
+}
+
+.movie-plot {
+  color: #fff;
+}
+
+.movie-cast {
+  color: #fff;
+}
+
+.movie-rating {
+  color: #fff;
+}
