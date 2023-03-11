@@ -1,4 +1,5 @@
 * {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,7 +12,6 @@ body {
 
 header{
     font-size: 3em;
-    font-family: 'Pacifico', cursive;
     color: #f9d9a8;
     text-align: center;
     text-shadow: 2px 2px #494949;
@@ -21,7 +21,15 @@ header{
 }
 
 /* container for the boxmodel to search for sorting or adding new data */
+.add-title{
+
+  text-align: center;
+  padding: 10px 0;
+
+}
+
 .movie-form {
+  display: grid;
   margin: 5px 25px 5px 25px;
   padding-bottom: 5px;
 }
@@ -34,14 +42,20 @@ header{
   font-family: Arial, sans-serif;
 }
 
+.filters{
+ text-align: center;
+   margin-left: auto;
+  margin-right: auto;
+}
+
+
 .sort-btn {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  float: right;
-}
+ }
 
 .sort-btn:hover {
   color: rgb(10, 2, 2);

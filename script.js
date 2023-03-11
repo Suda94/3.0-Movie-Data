@@ -57,7 +57,7 @@ for (let i = 0; i < movieEntries.length; i++) {
     movieCard.innerHTML = `
       <img class="movie-poster" src="./images/${movieName[i]}.jpg" alt="an image of ${movieName[i]} poster" >
       <h2 class="movie-name">${movieName[i]} (${movieInfo[i].year})</h2>
-      <h3>Plot</h3><br>
+      <details><h3>Plot</h3><br>
       <p class="movie-plot">${movieInfo[i].plot}</p>
       <br>
       <h3>Cast</h3><br>
@@ -85,7 +85,7 @@ document.getElementById("sort-btnID").onclick = function () {
     
       <h2 class="movie-name">${movieEntries[i][0]} (${movieEntries[i][1].year})</h2>
     
-      <h3>Plot</h3><br>
+      <details><h3>Plot</h3><br>
       <p class="movie-plot">${movieEntries[i][1].plot}</p>
       <br>
       
@@ -94,7 +94,7 @@ document.getElementById("sort-btnID").onclick = function () {
       <br>
     
       <h3>Info</h3><br>
-      <p>(<strong>${movieEntries[i][1].rating}</strong> Rating) <span>(${movieEntries[i][1].runtime} Minutes)</span></p>
+      <p>(<strong>${movieEntries[i][1].rating}</strong> Rating) <span>(${movieEntries[i][1].runtime} Minutes)</span></p></details>
       `;
         movieContainer.append(sortedMovieCard);
     }
@@ -141,16 +141,17 @@ function inputMovie() {
     inputMovieCard.innerHTML = `
         <img class="movie-poster" src="./images/poster_default.png" alt="an image of ${inputMovieName} poster" >
         <h2 class="movie-name">${inputMovieName} (${inputMovieYear})</h2>
-        <h3>Plot</h3><br>
+        <details><h3>Plot</h3><br>
         <p class="movie-plot">${inputMoviePlot}</p>
         <br>
         <h3>Cast</h3><br>
         <p class="movie-cast"><em>${inputMovieCast}</em></p>
         <br>
         <h3>Info</h3><br>
-        <p>(<strong>${inputMovieRating}</strong> Rating) <span>(${inputMovieRunTime} Minutes)</span></p>
+        <p>(<strong>${inputMovieRating}</strong> Rating) <span>(${inputMovieRunTime} Minutes)</span></p></details>
       `;
 
     movieContainer.append(inputMovieCard);
     console.log(movieEntries);
 }
+
